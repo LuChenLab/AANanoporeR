@@ -124,5 +124,48 @@ Predict(x = Fi, model = SmallRF)
 
 The result indicating that according our random forest classifier this signal event is N, and the probability is 0.662. 
 
+```
+sessionInfo()
+# R version 4.0.2 (2020-06-22)
+# Platform: x86_64-pc-linux-gnu (64-bit)
+# Running under: Ubuntu 18.04.5 LTS
+# 
+# Matrix products: default
+# BLAS:   /usr/lib/x86_64-linux-gnu/openblas/libblas.so.3
+# LAPACK: /usr/lib/x86_64-linux-gnu/libopenblasp-r0.2.20.so
+# 
+# locale:
+#   [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C
+# [3] LC_TIME=zh_CN.UTF-8        LC_COLLATE=en_US.UTF-8
+# [5] LC_MONETARY=zh_CN.UTF-8    LC_MESSAGES=en_US.UTF-8
+# [7] LC_PAPER=zh_CN.UTF-8       LC_NAME=C
+# [9] LC_ADDRESS=C               LC_TELEPHONE=C
+# [11] LC_MEASUREMENT=zh_CN.UTF-8 LC_IDENTIFICATION=C
+# 
+# attached base packages:
+#   [1] stats     graphics  grDevices utils     datasets  methods   base
+# 
+# other attached packages:
+#   [1] AANanopore_0.1.0
+# 
+# loaded via a namespace (and not attached):
+#   [1] plotly_4.9.2.1      magrittr_1.5        BiocGenerics_0.34.0
+# [4] IRanges_2.22.2      tidyselect_1.1.0    munsell_0.5.0
+# [7] lattice_0.20-41     viridisLite_0.3.0   colorspace_1.4-1
+# [10] readABF_1.0.2       R6_2.4.1            rlang_0.4.7
+# [13] httr_1.4.2          dplyr_1.0.1         tools_4.0.2
+# [16] parallel_4.0.2      grid_4.0.2          data.table_1.13.0
+# [19] gtable_0.3.0        htmltools_0.5.0     ellipsis_0.3.1
+# [22] lazyeval_0.2.2      digest_0.6.25       tibble_3.0.3
+# [25] lifecycle_0.2.0     crayon_1.3.4        tidyr_1.1.1
+# [28] purrr_0.3.4         ggplot2_3.3.2       htmlwidgets_1.5.1
+# [31] vctrs_0.3.2         S4Vectors_0.26.1    testthat_2.3.2
+# [34] changepoint_2.2.2   glue_1.4.1          compiler_4.0.2
+# [37] pillar_1.4.6        generics_0.0.2      scales_1.1.1
+# [40] stats4_4.0.2        jsonlite_1.7.1      zoo_1.8-8
+# [43] pkgconfig_2.0.3
+```
+
+
 
 ### References
