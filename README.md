@@ -25,6 +25,8 @@ library(AANanopore)
 
 ##### Step1: Read and polish the raw current signal
 
+Because the raw ABF file is too large for GitHub, we uploaded one of raw ABF file `21328004.abf` to [figshare](https://figshare.com/account/home). User can download the  `21328004.abf` file from  [figshare](https://figshare.com/account/home) by [10.6084/m9.figshare.21385062](https://doi.org/10.6084/m9.figshare.21385062).
+
 First, we need to read and polish the raw current signal from the ABF file using `CurrentPolish` function:
 
 ```R
@@ -121,6 +123,34 @@ Predict(x = Fi, model = SmallRF)
 ```
 
 The result indicating that according our random forest classifier this signal event is N, and the probability is 0.662. 
+
+##### Supplementary
+
+The random forest classifier was trained using R package `caret`. And we used K-fold cross-validation to prevent overfitting of the modeling.
+
+```R
+library(caret)
+library(doParallel)
+fitControl <- trainControl(method = "repeatedcv",
+                           number = 10,
+                           repeats = 10)
+
+cl <- makePSOCKcluster(10)
+registerDoParallel(cl)
+model <- train(Class ~ ., 
+               data = Train, 
+               preProc = c("center", "scale", "YeoJohnson", "nzv"),
+               method = "rf", 
+               trControl = fitControl,
+               verbose = FALSE,
+               ## to evaluate:
+               tuneGrid = expand.grid(mtry = 60),
+               # tuneLength = 50,
+               metric = "Accuracy", 
+               allowParallel = TRUE)
+```
+
+
 
 ```
 sessionInfo()

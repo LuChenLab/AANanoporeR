@@ -5,7 +5,7 @@ Version: 0.1.0
 Author: Chao Tang, Lu Chen
 Maintainer: Chao Tang <chaotangscu@gmail.com>
 Description: The package AANanopore comprises functions to extract amino acids signal from raw .ABF file, raw signal transformation for machine learning, and signal classification.
-License: MIT
+License: GPL
 Encoding: UTF-8
 LazyData: true
 Imports: 
@@ -13,4 +13,4 @@ Imports:
     readABF
 RoxygenNote: 7.1.1
 Depends: 
-    R (>= 2.10)
+    R (>= 4.0.0)
