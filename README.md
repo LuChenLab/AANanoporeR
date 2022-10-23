@@ -40,9 +40,7 @@ If the range of L0 (base line) and L1 (blockade signal) of ABF file is unknown, 
 L01 <- LevelIdentify(object = abf, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA)
 ```
 
-<img src="./inst/LevelIdentify.png" alt="image-20221023150732736" style="zoom: 50%;" />
-
-##### Step3: Extract signal events from original signals
+##### <img src="./inst/LevelIdentify.png" alt="image-20221023170055013" style="zoom:50%;" />Step3: Extract signal events from original signals
 
 After identify the signal level of ABF file, we can use `SignalExtract` function to extract the signal events:
 
