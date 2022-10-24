@@ -58,8 +58,8 @@ LevelIdentify <- function(object, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA
       data.table(x = d$x, y = d$y, adjust = i)
     }))
 
-    pADen$x2 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1Min)
-    pADen$x3 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1Max)
+    pADen$x2 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - 0.1)
+    pADen$x3 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - 0.25)
     tx <- highlight_key(pADen)
     widgets <- bscols(
       widths = c(12),
@@ -73,8 +73,8 @@ LevelIdentify <- function(object, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA
 
     pd <- select.list(choices = c("YES", "NO"), title = "The theoretical value is OK?")
     if(pd == "YES") {
-      L1Min <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1Max)
-      L1Max <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1Min)
+      L1Min <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - 0.25)
+      L1Max <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - 0.1)
     } else {
       L1Min <- readline("The minimum of L1(pA): ")
       L1Min <- as.numeric(L1Min)
