@@ -1,6 +1,10 @@
 AANanopore
 ======
 
+[TOC]
+
+
+
 ### ![image-20221023143755799](./workflow.png)Description
 
 [AANanopore](https://github.com/LuChenLab/AANanoporeR.git) is an open source R package for the signal processing, feature extraction, and prediction of amino acids nanopore signals. The original input file is .ABF file containing the current value of amino acids nanopore signals collected by Clampex software. In this package, the functions `CurrentPolish`, `LevelIdentify`, `SignalExtract`, `FeatureExtract`, and `Predict` can be used to process and predict the signals.
@@ -49,8 +53,6 @@ L01 <- LevelIdentify(object = abf, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = N
 
 ##### <img src="./inst/LevelIdentify.png" alt="image-20221023170055013" style="zoom:50%;" />
 
-
-
 ##### Step3: Extract signal events from original signals
 
 After identify the signal level of ABF file, we can use `SignalExtract` function to extract the signal events:
@@ -67,7 +69,7 @@ SigPlot(x = BUBs[[1]])
 
 <img src="./inst/SignalPlot.png" alt="image-20221023151808964" style="zoom:50%;" />
 
-##### Ste4: Extract features od signal events for classifier training or amino acid prediction
+##### Step4: Extract features od signal events for classifier training or amino acid prediction
 
 Then, we can used function `FeatureExtract` to extract the features of each signal event for machine learning.
 
@@ -271,6 +273,8 @@ sessionInfo()
 # [89] tidyselect_1.1.0     xfun_0.16
 ```
 
+### License
 
+This project is covered under the **GPL License**.
 
 ### References
