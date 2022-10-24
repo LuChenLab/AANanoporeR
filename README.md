@@ -1,11 +1,14 @@
 AANanopore
 ======
 
-[TOC]
+### ![image-20221023143755799](./workflow.png)
 
+### Content
 
+- [Description](#Description)
+- [Installation](#Installation)
 
-### ![image-20221023143755799](./workflow.png)Description
+### Description
 
 [AANanopore](https://github.com/LuChenLab/AANanoporeR.git) is an open source R package for the signal processing, feature extraction, and prediction of amino acids nanopore signals. The original input file is .ABF file containing the current value of amino acids nanopore signals collected by Clampex software. In this package, the functions `CurrentPolish`, `LevelIdentify`, `SignalExtract`, `FeatureExtract`, and `Predict` can be used to process and predict the signals.
 
