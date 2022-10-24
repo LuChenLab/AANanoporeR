@@ -12,11 +12,11 @@ AANanopore
   - [Software Requirements](#Software-Requirements)
 - [Installation](#Installation)
 - [Examples](#Examples)
-  - [Step1: Read and polish the raw current signal](#Step1: Read-and-polish-the-raw-current-signal)
-  - [Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals](#Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals)
-  - [Step3: Extract signal events from original signals](#Step3: Extract signal events from original signals)
-  - [Step4: Extract features od signal events for classifier training or amino acid prediction](#Step4: Extract features od signal events for classifier training or amino acid prediction)
-  - [Step5: Predict amino acid](#Step5: Predict amino acid)
+  - [Step1: Read and polish the raw current signal](#Step1:-Read-and-polish-the-raw-current-signal)
+  - [Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals](#Step2-(optional):-Identify-the-base-line-(L0)-and-blockade-signal-(L1)-of-amino-acids-signals)
+  - [Step3: Extract signal events from original signals](#Step3:-Extract-signal-events-from-original-signals)
+  - [Step4: Extract features of signal events for classifier training or amino acid prediction](#Step4:-Extract-features-of-signal-events-for-classifier-training-or-amino-acid-prediction)
+  - [Step5: Predict amino acid](#Step5:-Predict-amino-acid)
 - [License](#License)
 - [References](#References)
 
@@ -105,7 +105,7 @@ SigPlot(x = BUBs[[1]])
 
 
 
-##### Step4: Extract features od signal events for classifier training or amino acid prediction
+##### Step4: Extract features of signal events for classifier training or amino acid prediction
 
 Then, we can used function `FeatureExtract` to extract the features of each signal event for machine learning.
 
