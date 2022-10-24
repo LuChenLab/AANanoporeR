@@ -4,6 +4,7 @@
 #' @importFrom testthat %>%
 #' @import data.table
 #' @import plotly
+#' @import crosstalk
 #' @param object The result of function `CurrentPolish`.
 #' @param L0Min,L0Max,L1Min,L1ax The default range of L0 and L1 signal level.
 #'
@@ -40,7 +41,7 @@ LevelIdentify <- function(object, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA
     DenSm <- density(object[, pA], adjust = adjust)
 
     L0 <- c(L0Min, L0Max)
-    L0Min <- abf[pA > L0Min & pA < L0Max, median(Sm)] * 0.9
+    L0Min <- object[pA > L0Min & pA < L0Max, median(Sm)] * 0.9
 
     plot(DenSm, xlab = "Current (pA)", main = "density of current")
     abline(v = L0, lty = 2, col = 2)
@@ -50,15 +51,15 @@ LevelIdentify <- function(object, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA
 
   if(anyNA(c(L1Min, L1Max))) {
     print("Now, we need identify the L1 from data.")
-    pA <- abf[Sm < max(L0) * 0.9 & Sm > 50, pA]
+    pA <- object[Sm < max(L0) * 0.9 & Sm > 50, pA]
 
     pADen <- do.call(rbind, lapply(1:10/10, function(i) {
       d <- density(pA, adjust = i, n = 1024)
       data.table(x = d$x, y = d$y, adjust = i)
     }))
 
-    pADen$x2 <- abf[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1min)
-    pADen$x3 <- abf[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1max)
+    pADen$x2 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1min)
+    pADen$x3 <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1max)
     tx <- highlight_key(pADen)
     widgets <- bscols(
       widths = c(12),
@@ -72,8 +73,8 @@ LevelIdentify <- function(object, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA
 
     pd <- select.list(choices = c("YES", "NO"), title = "The theoretical value is OK?")
     if(pd == "YES") {
-      L1Min <- abf[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1max)
-      L1Max <- abf[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1min)
+      L1Min <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1max)
+      L1Max <- object[pA > L0Min & pA < L0Max, median(Sm)] * c(1 - L1min)
     } else {
       L1Min <- readline("The minimum of L1(pA): ")
       L1Min <- as.numeric(L1Min)
