@@ -6,8 +6,8 @@ AANanopore
 ### Content
 
 - [Description](#Description)
-- [Requirment](#Requirment)
-  - [Data Requirements](#Data Requirements)
+- [Requirments](#Requirments)
+  - [Data Requirements](#Data\ Requirements)
   - [Hardware Requirements](#Hardware Requirements)
   - [Software Requirements](#Software Requirements)
 - [Installation](#Installation)
