@@ -101,7 +101,7 @@ Here, the object `BUBs` is a R list with signal events. Extracted signal can be 
 SigPlot(x = BUBs[[1]])
 ```
 
-<img src="./inst/SignalPlot.png" alt="image-20221023151808964" style="zoom:50%;" />
+<img src="./inst/SignalPlot.png" alt="image-20221023151808964" style="zoom:30%;" />
 
 
 
