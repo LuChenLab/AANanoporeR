@@ -6,11 +6,46 @@ AANanopore
 ### Content
 
 - [Description](#Description)
+- [Requirment](#Requirment)
+  - [Data Requirements](#Data Requirements)
+  - [Hardware Requirements](#Hardware Requirements)
+  - [Software Requirements](#Software Requirements)
 - [Installation](#Installation)
+- [Examples](#Examples)
+  - [Step1: Read and polish the raw current signal](#Step1: Read and polish the raw current signal)
+  - [Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals](#Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals)
+  - [Step3: Extract signal events from original signals](#Step3: Extract signal events from original signals)
+  - [Step4: Extract features od signal events for classifier training or amino acid prediction](#Step4: Extract features od signal events for classifier training or amino acid prediction)
+  - [Step5: Predict amino acid](#Step5: Predict amino acid)
+- [License](#License)
+- [References](#References)
 
 ### Description
 
 [AANanopore](https://github.com/LuChenLab/AANanoporeR.git) is an open source R package for the signal processing, feature extraction, and prediction of amino acids nanopore signals. The original input file is .ABF file containing the current value of amino acids nanopore signals collected by Clampex software. In this package, the functions `CurrentPolish`, `LevelIdentify`, `SignalExtract`, `FeatureExtract`, and `Predict` can be used to process and predict the signals.
+
+### Requirments
+
+##### Data Requirements
+
+If you want to run this R package successfully, you may need a ABF file and a classification model. Because the raw ABF file is too large for GitHub, we uploaded one of raw ABF file `21306010.abf` to [figshare](https://figshare.com/account/home). User can download the  `21306010.abf` file from  [figshare](https://figshare.com/account/home) by  [10.6084/m9.figshare.21385695](https://doi.org/10.6084/m9.figshare.21385695). For this manul, we also uploaded a trained random forest classifier to [figshare](https://figshare.com/account/home). User can also download the  `RF_model.Rds` file from  [figshare](https://figshare.com/account/home) by  [10.6084/m9.figshare.21385722](https://doi.org/10.6084/m9.figshare.21385722).
+
+##### Hardware Requirements
+
+The `AANanopore` package requires only a standard computer with enough RAM to support the operations defined by a user. For minimal performance, this will be a computer with about 2 GB of RAM. For optimal performance, we recommend a computer with the following specs:
+
+- RAM: 16+ GB
+- CPU: 4+ cores, 3.3+ GHz/core
+
+##### Software Requirements
+
+The package development version is tested on *Linux* operating systems. Before setting up the `AANanopore` package, users should have `R` version 4.0.0 or higher, and several packages set up from CRAN.
+
+Users should install the following packages prior to installing `AANanopore`, from an `R` terminal:
+
+```R
+install.packages(c("changepoint", "readABF", "testthat", "S4Vectors", "IRanges", "plotly", "ggplot2", "data.table", "crosstalk"))
+```
 
 ### Installation  
 
@@ -27,10 +62,6 @@ Then we just call
 install_github("LuChenLab/AANanoporeR")
 library(AANanopore)
 ```
-
-### Requirment
-
-If you want to run this R package successfully, you may need a ABF file and a classification model. Because the raw ABF file is too large for GitHub, we uploaded one of raw ABF file `21306010.abf` to [figshare](https://figshare.com/account/home). User can download the  `21306010.abf` file from  [figshare](https://figshare.com/account/home) by  [10.6084/m9.figshare.21385695](https://doi.org/10.6084/m9.figshare.21385695). For this manul, we also uploaded a trained random forest classifier to [figshare](https://figshare.com/account/home). User can also download the  `RF_model.Rds` file from  [figshare](https://figshare.com/account/home) by  [10.6084/m9.figshare.21385722](https://doi.org/10.6084/m9.figshare.21385722).
 
 ### Examples
 
@@ -71,6 +102,8 @@ SigPlot(x = BUBs[[1]])
 ```
 
 <img src="./inst/SignalPlot.png" alt="image-20221023151808964" style="zoom:50%;" />
+
+
 
 ##### Step4: Extract features od signal events for classifier training or amino acid prediction
 
