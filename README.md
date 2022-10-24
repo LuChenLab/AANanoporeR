@@ -62,7 +62,7 @@ BUBs <- SignalExtract(object = abf, L0Min = L01$L0Min, L0Max = L01$L0Max, L1Min 
 Here, the object `BUBs` is a R list with signal events. Extracted signal can be illustrate by function `SigPlot`, the read line indicating the polished value of current signal.
 
 ```R
-SigPlot(x = sample(BUBs, 1)[[1]])
+SigPlot(x = BUBs[[1]])
 ```
 
 <img src="./inst/SignalPlot.png" alt="image-20221023151808964" style="zoom:50%;" />
