@@ -16,7 +16,7 @@ AANanopore
   - [Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals](#Step2-(optional):-Identify-the-base-line-(L0)-and-blockade-signal-(L1)-of-amino-acids-signals)
   - [Step3: Extract signal events from original signals](#Step3:-Extract-signal-events-from-original-signals)
   - [Step4: Extract features of signal events for classifier training or amino acid prediction](#Step4:-Extract-features-of-signal-events-for-classifier-training-or-amino-acid-prediction)
-  - [Step5: Predict amino acid](#Step5:-Predict-amino-acid)
+  - [Step5: Predict amino acid](#Step5\:-Predict-amino-acid)
 - [License](#License)
 - [References](#References)
 
