@@ -79,7 +79,7 @@ abf <- CurrentPolish(file = File, TimeStart = 0, TimeEnd = 0)
 
 ##### Step2 (optional): Identify the base line (L0) and blockade signal (L1) of amino acids signals
 
-If the range of L0 (base line) and L1 (blockade signal) of ABF file is unknown, the function `LevelIdentify` can be used to identify:
+If the range of L0 (base line) and L1 (blockade current) of ABF file is unknown, the function `LevelIdentify` can be used to identify:
 
 ```R
 L01 <- LevelIdentify(object = abf, L0Min = NA, L0Max = NA, L1Min = NA, L1Max = NA)
@@ -95,7 +95,7 @@ After identify the signal level of ABF file, we can use `SignalExtract` function
 BUBs <- SignalExtract(object = abf, L0Min = L01$L0Min, L0Max = L01$L0Max, L1Min = L01$L1Min, L1Max = L01$L1Max)
 ```
 
-Here, the object `BUBs` is a R list with signal events. Extracted signal can be illustrate by function `SigPlot`, the read line indicating the polished value of current signal.
+Here, the object `BUBs` is a R list with signal events. Extracted signal can be illustrate by function `SigPlot`, the red line indicating the polished value of current signal.
 
 ```R
 SigPlot(x = BUBs[[1]])
